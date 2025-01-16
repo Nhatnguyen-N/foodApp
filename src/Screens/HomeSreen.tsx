@@ -1,5 +1,12 @@
-import { View, Text, SafeAreaView, Platform, ScrollView } from "react-native";
-import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Platform,
+  ScrollView,
+  Animated,
+} from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 import { RootStackScreenProps } from "../Navigation/RootNavigation";
 import HomeHeaders from "../Components/Headers/HomeHeaders";
 import { restaurants } from "../Data/RestaurantAllData";
@@ -9,9 +16,8 @@ type Props = {};
 
 const HomeSreen = ({ navigation: route }: RootStackScreenProps<"home">) => {
   const [deliveryMethod, setDeliveryMethod] = useState<boolean>(false);
-  useEffect(() => {
-    console.log("data", restaurants);
-  });
+  const scrollOffsetY = useRef(new Animated.Value(0)).current;
+
   return (
     <>
       <SafeAreaView
@@ -24,26 +30,41 @@ const HomeSreen = ({ navigation: route }: RootStackScreenProps<"home">) => {
         <HomeHeaders
           deliveryMethod={deliveryMethod}
           setDeliveryMethod={() => setDeliveryMethod(!deliveryMethod)}
+          scrollOffsetY={scrollOffsetY}
         />
         <ScrollView
-          style={{
-            marginTop: 4,
-          }}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
-            marginHorizontal: 10,
+          onScroll={(e) => {
+            const offSetY = e.nativeEvent.contentOffset.y;
+            scrollOffsetY.setValue(offSetY);
           }}
+          scrollEventThrottle={16}
         >
-          {restaurants.map((rest, index) => (
-            <RestaurantCard
-              key={index}
-              details={{
-                image: rest.imageUrl,
-                name: rest.name,
-                _id: rest._id,
-              }}
-            />
-          ))}
+          <ScrollView
+            style={{
+              marginTop: 4,
+            }}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+              marginHorizontal: 10,
+            }}
+          >
+            {restaurants.map((rest, index) => (
+              <RestaurantCard
+                key={index}
+                details={{
+                  image: rest.imageUrl,
+                  name: rest.name,
+                  _id: rest._id,
+                  foodType: rest.foodType,
+                  deliveryMethod: rest.deliveryMethod,
+                  deliveryTimeFrom: rest.deliveryTimeFrom,
+                  deliveryTimeTo: rest.deliveryTimeTo,
+                  ratingCount: rest.ratingCount,
+                }}
+              />
+            ))}
+          </ScrollView>
         </ScrollView>
       </SafeAreaView>
     </>

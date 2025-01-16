@@ -4,7 +4,7 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 interface HomeHeaderParams {
   deliveryMethod?: boolean;
   setDeliveryMethod?: () => void;
-  scrollOffsetY?: Animated.Value;
+  scrollOffsetY: Animated.Value;
 }
 
 const MaxHeaderHeight = 130;
@@ -16,6 +16,38 @@ const HomeHeaders = ({
   setDeliveryMethod,
   scrollOffsetY,
 }: HomeHeaderParams) => {
+  const animateSearchBar = {
+    transform: [
+      {
+        translateX: scrollOffsetY.interpolate({
+          inputRange: [0, 50],
+          outputRange: [0, -23],
+          extrapolate: "clamp",
+        }),
+      },
+      {
+        translateY: scrollOffsetY?.interpolate({
+          inputRange: [0, 50],
+          outputRange: [0, -85],
+          extrapolate: "clamp",
+        }),
+      },
+      {
+        scale: scrollOffsetY.interpolate({
+          inputRange: [0, 42],
+          outputRange: [1, 0.72],
+          extrapolate: "clamp",
+        }),
+      },
+    ],
+  };
+  const animateTitle = {
+    opacity: scrollOffsetY.interpolate({
+      inputRange: [0, 20],
+      outputRange: [1, 0],
+      extrapolate: "clamp",
+    }),
+  };
   return (
     <Animated.View style={{}}>
       <View
@@ -126,7 +158,7 @@ const HomeHeaders = ({
           </Pressable>
         </Pressable>
       </View>
-      <Animated.View style={{ marginHorizontal: 10 }}>
+      <Animated.View style={[{ marginHorizontal: 10 }, animateTitle]}>
         <Text
           style={{
             fontSize: 30,
@@ -139,15 +171,18 @@ const HomeHeaders = ({
         </Text>
       </Animated.View>
       <Animated.View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          backgroundColor: "#fff",
-          borderRadius: 10,
-          height: 38,
-          marginHorizontal: 10,
-          marginVertical: 12,
-        }}
+        style={[
+          {
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#fff",
+            borderRadius: 10,
+            height: 38,
+            marginHorizontal: 10,
+            marginVertical: 12,
+          },
+          animateSearchBar,
+        ]}
       >
         <Pressable
           style={{
