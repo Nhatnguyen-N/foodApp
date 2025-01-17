@@ -48,8 +48,14 @@ const HomeHeaders = ({
       extrapolate: "clamp",
     }),
   };
+
+  const animateHeadersHeight = scrollOffsetY.interpolate({
+    inputRange: [0, scrollDistance],
+    outputRange: [MaxHeaderHeight, MinHeaderHeight],
+    extrapolate: "clamp",
+  });
   return (
-    <Animated.View style={{}}>
+    <Animated.View style={{ height: animateHeadersHeight }}>
       <View
         style={{
           flexDirection: "row",

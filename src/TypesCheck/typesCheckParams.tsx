@@ -19,3 +19,45 @@ export interface restaurantParams {
   ratingCount: number;
   coords: coordParams;
 }
+
+export interface restaurantCategoryParams {
+  _id: string;
+  name: string;
+  imageUrl: string;
+}
+export interface menuParams {
+  _id: string;
+  menuName: string;
+  description: string;
+  restaurantId: string;
+}
+interface additives {
+  _id: string;
+  name: string;
+  parentId: string;
+  price?: number;
+  disabled?: boolean;
+}
+interface additivesParams {
+  _id?: string;
+  additiveType: string;
+  additiveInfo: additives[];
+}
+export interface menuItemParams {
+  _id: string;
+  name?: string;
+  image?: string;
+  description?: string;
+  price: number;
+  quantity: number;
+  menuId?: string;
+  restaurantId?: string;
+  additives?: additivesParams[];
+  additiveTotal?: number;
+  subTotal?: number;
+  totalPrice?: number;
+  qCount?: number;
+  length?: number;
+  deliveryTimeFrom?: number;
+  deliveryTimeTo?: number;
+}

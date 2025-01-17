@@ -1,48 +1,61 @@
 // import { menuItemParams } from "../types/CartTypes";
 
-import { restaurantParams } from "../TypesCheck/typesCheckParams";
+import {
+  menuItemParams,
+  menuParams,
+  restaurantCategoryParams,
+  restaurantParams,
+} from "../TypesCheck/typesCheckParams";
 
-export const restuarantCategories = [
+export const restuarantCategories: restaurantCategoryParams[] = [
   {
     _id: "6537ece708ff5b7de97d0695",
     name: "Chicken",
-    imageUrl: "../../assets/chicken-leg_821023.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028510/chicken-leg_821023_uk6yfe.png",
   },
   {
     _id: "65310f3381e4d98d60b093c5",
     name: "Jollof",
-    imageUrl: "../../assets/spice_3800322.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028519/spice_3800322_fam3d9.png",
   },
   {
     _id: "6531206cbbe4998e90af3feb",
     name: "Pasta",
-    imageUrl: "../../assets/spaguetti.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028519/spaguetti_azocci.png",
   },
   {
     _id: "6531209dbbe4998e90af3fef",
     name: "Burger",
-    imageUrl: "../../assets/burger.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028510/burger_smzhmu.png",
   },
   {
     _id: "653120babbe4998e90af3ff1",
     name: "Shawarma",
-    imageUrl: "../../assets/shawarma.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028519/shawarma_yyxrn9.png",
   },
   {
     _id: "65312084bbe4998e90af3fed",
     name: "Grill",
-    imageUrl: "../../assets/barbecue.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028508/barbecue_bjxcaj.png",
   },
   {
     _id: "65310efb81e4d98d60b093c3",
     name: "Pizza",
-    imageUrl: "../../assets/pizza.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028518/pizza_xhahvv.png",
   },
 
   {
     _id: "653120e1bbe4998e90af3ff3",
     name: "Breakfast",
-    imageUrl: "../../assets/breakfast.png",
+    imageUrl:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028509/breakfast_wcyr1x.png",
   },
 ];
 
@@ -178,7 +191,7 @@ export const restaurants: restaurantParams[] = [
   },
 ];
 
-export const menus = [
+export const menus: menuParams[] = [
   {
     _id: "6530ebbcc9e72013e5b658dm",
     menuName: "Burgers & Sandwiches",
@@ -243,11 +256,12 @@ export const menus = [
   },
 ];
 
-export const menuItems = [
+export const menuItems: menuItemParams[] = [
   {
     _id: "6530addcc9e72013e5b6190b",
     name: "Big Boyz Combo",
-    image: "../../assets/ChickenRep-BurgerSandwich--bigBoysCombo.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028510/ChickenRep-BurgerSandwich--bigBoysCombo_uiy3oy.jpg",
     description:
       "Enjoy a Chief Burger with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 400,
@@ -311,7 +325,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b6192c",
     name: "Chief Burger",
-    image: "../../assets/ChickenRep-BurgerSandwich--ChiefBurger.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028511/ChickenRep-BurgerSandwich--ChiefBurger_e4m0nk.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 1300,
@@ -323,7 +338,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b6193d",
     name: "ChickWizz Meal",
-    image: "../../assets/ChickenRep-BurgerSandwich--Chickwizz.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028511/ChickenRep-BurgerSandwich--Chickwizz_nkii8k.jpg",
     description:
       "Enjoy a Chief Burger with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 400,
@@ -335,7 +351,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7191a",
     name: "Full Chicken",
-    image: "../../assets/ChickenRep-Chicken--FullChicken.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028511/ChickenRep-Chicken--FullChicken_ee5s1h.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 13500,
@@ -347,7 +364,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7192b",
     name: "Half Chicken",
-    image: "../../assets/ChickenRep-Chicken--chickenLap.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028511/ChickenRep-Chicken--chickenLap_ot3x5w.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 7000,
@@ -359,7 +377,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b81901a",
     name: "Fried Rice",
-    image: "../../assets/Chicken-Republic-Fried-Rice.jpg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028512/Chicken-Republic-Fried-Rice_aev3kf.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 1300,
@@ -371,7 +390,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b81902b",
     name: "Jollof Rice",
-    image: "../../assets/Chicken-Republic-Jollof-Rice-1.jpg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--plantainnEggSauce_nwjc78.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 1200,
@@ -383,7 +403,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b81903c",
     name: "White Rice + Sauce",
-    image: "../../assets/CHICKEN-REPUBLIC-WHITE-RICE-SAUCE.jpg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028509/CHICKEN-REPUBLIC-WHITE-RICE-SAUCE_tlt5ys.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 1300,
@@ -395,7 +416,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b81904d",
     name: "Rice & Beans With Sauce",
-    image: "../../assets/Chicken-Republic-Rice-Beans-with-sauce.jpg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028509/Chicken-Republic-Rice-Beans-with-sauce_gqkx9b.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 1300,
@@ -407,7 +429,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b81905e",
     name: "Plantain and Egg Sauce",
-    image: "../../assets/Menum-Fries--plantainnEggSauce.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--plantainnEggSauce_nwjc78.jpg",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -419,7 +442,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b21906f",
     name: "Chips and Chicken Wings",
-    image: "../../assets/Menum-Fries--Chips-Chicken-Wings.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -431,7 +455,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b21907g",
     name: "GizzDodo",
-    image: "../../assets/Menum.freis.GissDodo.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -443,7 +468,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b2107ab",
     name: "Beef Shawarma",
-    image: "../../assets/Menum-Shawarma--Beef-shawarma.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 2800,
@@ -455,7 +481,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b2106ac",
     name: "Small Chops Combo",
-    image: "../../assets/Menum-Shawarma--small Chops.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 11500,
@@ -467,7 +494,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b2105ad",
     name: "Chicken Shawarma",
-    image: "../../assets/Menum-Shawarma--Extra-large-chicken-shawarma.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -479,7 +507,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b2111ab",
     name: "Turkey Pepper Soup",
-    image: "../../assets/Menum-PepperSoup--Turkey-pepper-soup.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 7500,
@@ -491,7 +520,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b2112ac",
     name: "Catfish Pepper Soup",
-    image: "../../assets/Menum-PepperSoup--Cat-fish-pepper-soup.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -503,7 +533,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b2123ad",
     name: "Beef Pepper Soup",
-    image: "../../assets/Menum-PepperSoup--Beef-pepper-soup.png",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3000,
@@ -515,7 +546,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b4423ba",
     name: "Sausage Sandwich",
-    image: "../../assets/ToastPan-Sandwhiches--prawnSandwich.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 7500,
@@ -527,7 +559,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b4432bc",
     name: "Steak Sandwich",
-    image: "../../assets/ToastPan-Sandwhiches--SteakSandwich.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -539,7 +572,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b4436cb",
     name: "Chicken Sandwich",
-    image: "../../assets/ToastPan-Sandwhiches--chickenSandwich.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3000,
@@ -551,7 +585,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7112bd",
     name: "Beef Burger",
-    image: "../../assets/ToastPan-Burger--beefBurger.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 7500,
@@ -563,7 +598,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7113be",
     name: "Chicken Burger",
-    image: "../../assets/ToastPan-Burger--ChickenBurger.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -575,7 +611,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7123de",
     name: "Seafood Burger",
-    image: "../../assets/ToastPan-Sandwhiches--seaFoodSandwiches.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3000,
@@ -587,7 +624,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7813ea",
     name: "Smoked Turkey Wraps",
-    image: "../../assets/ToastPan-wrap--smokedTurkeyWrap.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 7500,
@@ -599,7 +637,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7821eb",
     name: "Beef Wraps",
-    image: "../../assets/ToastPan-wrap--beefWrap.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3500,
@@ -611,7 +650,8 @@ export const menuItems = [
   {
     _id: "6530addcc9e72013e5b7814ec",
     name: "Chicken Wraps",
-    image: "../../assets/ToastPan-wrap--chickenWrap.jpeg",
+    image:
+      "https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028513/Menum-Fries--Chips-Chicken-Wings_llvoqs.png",
     description:
       "Enjoy a Chicken Republic meals with one piece of Soulfully Spiced Fried Chicken with your choice of Spaghetti, Fried Rice, Jollof Rice or Rice & Beans with sauce, plus a drink of your choice",
     price: 3000,
