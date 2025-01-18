@@ -61,3 +61,13 @@ export interface menuItemParams {
   deliveryTimeFrom?: number;
   deliveryTimeTo?: number;
 }
+
+export interface CartItem {
+  cart: menuItemParams[];
+}
+export interface CartState {
+  cart: {
+    cart: menuItemParams[];
+    length: number;
+  };
+}
