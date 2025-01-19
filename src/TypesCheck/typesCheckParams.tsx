@@ -31,7 +31,7 @@ export interface menuParams {
   description: string;
   restaurantId: string;
 }
-interface additives {
+export interface additives {
   _id: string;
   name: string;
   parentId: string;
@@ -53,6 +53,7 @@ export interface menuItemParams {
   menuId?: string;
   restaurantId?: string;
   additives?: additivesParams[];
+  selectedAdditives?: additives[];
   additiveTotal?: number;
   subTotal?: number;
   totalPrice?: number;
