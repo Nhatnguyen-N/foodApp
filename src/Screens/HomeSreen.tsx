@@ -15,7 +15,6 @@ import RestaurantCard from "../Components/RestaurantCard";
 import CategoryCard from "../Components/CategoryCard";
 import { Ionicons } from "@expo/vector-icons";
 
-type Props = {};
 const MaxHeaderHeight = 130;
 const MinHeaderHeight = 40;
 const HomeSreen = ({ navigation, route }: RootStackScreenProps<"home">) => {
@@ -23,6 +22,7 @@ const HomeSreen = ({ navigation, route }: RootStackScreenProps<"home">) => {
   const scrollOffsetY = useRef(new Animated.Value(0)).current;
   const [activeCat, setActiveCat] = useState<string>("");
 
+  //
   const animateCatHeight = scrollOffsetY.interpolate({
     inputRange: [50, 100],
     outputRange: [MaxHeaderHeight, MinHeaderHeight],
@@ -64,7 +64,9 @@ const HomeSreen = ({ navigation, route }: RootStackScreenProps<"home">) => {
           setDeliveryMethod={() => setDeliveryMethod(!deliveryMethod)}
           scrollOffsetY={scrollOffsetY}
         />
+        {/*category and features  */}
         <Animated.View style={{ height: animateCatHeight }}>
+          {/* List category */}
           <Animated.ScrollView>
             <Animated.ScrollView
               horizontal
@@ -88,6 +90,7 @@ const HomeSreen = ({ navigation, route }: RootStackScreenProps<"home">) => {
               ))}
             </Animated.ScrollView>
           </Animated.ScrollView>
+          {/*Features(Promotion,foodType,SortBy) */}
           <View>
             <Animated.ScrollView
               horizontal
@@ -170,9 +173,13 @@ const HomeSreen = ({ navigation, route }: RootStackScreenProps<"home">) => {
             </Animated.ScrollView>
           </View>
         </Animated.View>
+
+        {/* List Restaurants */}
         <ScrollView
           showsVerticalScrollIndicator={false}
+          // Sự kiện scroll
           onScroll={(e) => {
+            // offSetY lưu vị trí cuộn (VD: cuộn 10px thì giá trị lưu là 10)
             const offSetY = e.nativeEvent.contentOffset.y;
             scrollOffsetY.setValue(offSetY);
           }}

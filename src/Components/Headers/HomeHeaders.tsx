@@ -19,6 +19,7 @@ const HomeHeaders = ({
   const animateSearchBar = {
     transform: [
       {
+        // khi scroll từ 0->50 thì thanh search di chuyển sang ngang từ phải qua trái 23(là -23 vì dương là từ trái sang phải)
         translateX: scrollOffsetY.interpolate({
           inputRange: [0, 50],
           outputRange: [0, -23],
@@ -26,6 +27,7 @@ const HomeHeaders = ({
         }),
       },
       {
+        // khi scroll từ 0->50 thì thanh search di chuyển theo trục dọc đi lên 85(là -85 vì dương là từ trên xuống dưới)
         translateY: scrollOffsetY?.interpolate({
           inputRange: [0, 50],
           outputRange: [0, -85],
@@ -33,6 +35,7 @@ const HomeHeaders = ({
         }),
       },
       {
+        // khi scroll từ 0->42 thì thanh search thu nhỏ lại còn 72%
         scale: scrollOffsetY.interpolate({
           inputRange: [0, 42],
           outputRange: [1, 0.72],
@@ -41,7 +44,9 @@ const HomeHeaders = ({
       },
     ],
   };
+
   const animateTitle = {
+    //khi scroll từ 0-20 thì title sẽ mờ dần rồi ẩn hoàn toàn
     opacity: scrollOffsetY.interpolate({
       inputRange: [0, 20],
       outputRange: [1, 0],
@@ -50,12 +55,26 @@ const HomeHeaders = ({
   };
 
   const animateHeadersHeight = scrollOffsetY.interpolate({
+    //khi scrool từ 0-59 thì chiều cao của header sẽ giảm từ maxHeight ->minHeight(Cách 1)
     inputRange: [0, scrollDistance],
     outputRange: [MaxHeaderHeight, MinHeaderHeight],
     extrapolate: "clamp",
   });
+
+  const animateHeight = {
+    //khi scrool từ 0-59 thì chiều cao của header sẽ giảm từ maxHeight ->minHeight(Cách 2)
+    height: scrollOffsetY.interpolate({
+      inputRange: [0, scrollDistance],
+      outputRange: [MaxHeaderHeight, MinHeaderHeight],
+      extrapolate: "clamp",
+    }),
+  };
   return (
-    <Animated.View style={{ height: animateHeadersHeight }}>
+    <Animated.View
+      style={{ height: animateHeadersHeight }}
+      // style={[animateHeight]}
+    >
+      {/* Header icon back and swtich method */}
       <View
         style={{
           flexDirection: "row",
@@ -63,6 +82,7 @@ const HomeHeaders = ({
           paddingHorizontal: 7,
         }}
       >
+        {/* icon back */}
         <Pressable
           style={{
             flex: 1,
@@ -71,6 +91,7 @@ const HomeHeaders = ({
         >
           <Ionicons name="chevron-back" size={30} color="#fff" />
         </Pressable>
+        {/* switch method */}
         <Pressable
           style={{
             flexDirection: "row",
@@ -84,6 +105,7 @@ const HomeHeaders = ({
             opacity: 0.8,
           }}
         >
+          {/* set BgColor Icon bicycle :Orange */}
           <Pressable onPress={setDeliveryMethod}>
             {deliveryMethod !== false ? (
               <View
@@ -122,6 +144,7 @@ const HomeHeaders = ({
             )}
           </Pressable>
 
+          {/* set BgColor Icon walk :Orange */}
           <Pressable
             onPress={setDeliveryMethod}
             style={{ alignItems: "center" }}
@@ -164,6 +187,7 @@ const HomeHeaders = ({
           </Pressable>
         </Pressable>
       </View>
+      {/* Text Restaurant */}
       <Animated.View style={[{ marginHorizontal: 10 }, animateTitle]}>
         <Text
           style={{
@@ -176,6 +200,7 @@ const HomeHeaders = ({
           Restaurant
         </Text>
       </Animated.View>
+      {/* Search UI */}
       <Animated.View
         style={[
           {

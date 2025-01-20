@@ -28,8 +28,6 @@ import {
 } from "../Redux/CartReducer";
 import Modal from "react-native-modal";
 
-type Props = {};
-
 const RestaurantScreen = ({
   navigation,
   route,
@@ -51,7 +49,7 @@ const RestaurantScreen = ({
   const [selectedAdditives, setSelectedAdditives] = useState<additives[]>([]);
 
   const selectedMenuItem = menuItems.find((item) => item._id === additiveId);
-
+  const [qCount, setqCount] = useState<number>(1);
   console.log("cart", cart);
 
   const handleAdditivesModal = (id: string) => {
@@ -103,8 +101,6 @@ const RestaurantScreen = ({
       dispatch(decrementQuantity(itemObj));
     }
   };
-
-  const [qCount, setqCount] = useState<number>(1);
   const incQ = () => {
     setqCount((prevQuantity) => prevQuantity + 1);
   };
@@ -117,6 +113,7 @@ const RestaurantScreen = ({
   const additiveTotal = selectedAdditives
     ?.map((item) => item?.price ?? 0)
     .reduce((curr, prev) => curr + prev, 0);
+
   const subTotal = additiveTotal + (selectedMenuItem?.price ?? 0);
   const itemTotal = subTotal * qCount;
   const [totalPrice, setTotalPrice] = useState<number>(itemTotal);
@@ -203,7 +200,6 @@ const RestaurantScreen = ({
     }),
   };
   //additive animations
-
   const animateModalHeader1 = {
     transform: [
       {
@@ -261,6 +257,7 @@ const RestaurantScreen = ({
           backgroundColor: "#000",
         }}
       >
+        {/* Header Restaurant */}
         <Animated.View style={[{ zIndex: 100 }, aninateHeader]}>
           <Animated.View
             style={[{ backgroundColor: aHeaderBgColor, height: aHeaderHt }]}
@@ -293,6 +290,7 @@ const RestaurantScreen = ({
           </Animated.View>
         </Animated.View>
 
+        {/* Menu list header */}
         <Animated.View
           style={[
             { backgroundColor: aMenuBgColor, height: aMenuHt, zIndex: 99 },
@@ -321,7 +319,10 @@ const RestaurantScreen = ({
               ))}
           </Animated.ScrollView>
         </Animated.View>
+
+        {/*Body RestaurantScreen */}
         <Animated.View style={[aninateFloatingHd]}>
+          {/*Button Back and Button Share  */}
           <Animated.View style={[aninateFloatingHd2, animateOpacity]}>
             <Pressable
               onPress={() => navigation.goBack()}
@@ -362,6 +363,7 @@ const RestaurantScreen = ({
               <Ionicons name="share-outline" size={25} color={"#fff"} />
             </Pressable>
           </Animated.View>
+          {/*Image Background  */}
           <Animated.Image
             source={{ uri: foodItemParams?.imageUrl }}
             style={{
@@ -373,6 +375,7 @@ const RestaurantScreen = ({
               transform: [{ scale: scaleImage }],
             }}
           />
+          {/*  */}
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ paddingTop: 120, paddingBottom: 20 }}
@@ -391,7 +394,9 @@ const RestaurantScreen = ({
             }}
             scrollEventThrottle={16}
           >
+            {/*RestaurantInfo,MenuList Container */}
             <View style={{ backgroundColor: "#000", borderTopRightRadius: 70 }}>
+              {/* Name Restaurant */}
               <View style={{ marginTop: 20, marginHorizontal: 10 }}>
                 <Text
                   style={{ fontSize: 15, color: "#fff", fontWeight: "bold" }}
@@ -399,6 +404,7 @@ const RestaurantScreen = ({
                   {foodItemParams?.name}
                 </Text>
               </View>
+
               <RestaurantInfo
                 imageUrl="https://res.cloudinary.com/dsq3oy0yz/image/upload/v1737028518/rating_regular_caxad7.png"
                 info={{
@@ -409,11 +415,15 @@ const RestaurantScreen = ({
                   deliveryPrice: 400,
                 }}
               />
+              {/* MenuList And MenuItem */}
               <View style={{ marginHorizontal: 10, marginTop: 10 }}>
+                {/* Menu List */}
                 {menus
                   .filter((menU) => menU.restaurantId === foodItemParams._id)
                   .map((menuList, index) => (
+                    // Menu Item
                     <View key={index}>
+                      {/* Menu Name */}
                       <View
                         style={{ marginTop: 50, marginBottom: 10 }}
                         key={menuList._id}
@@ -428,10 +438,13 @@ const RestaurantScreen = ({
                           {menuList.menuName}
                         </Text>
                       </View>
+
+                      {/* Items Of Menu Container */}
                       <View>
                         {menuItems
                           .filter((itemobj) => itemobj.menuId === menuList._id)
                           .map((item, index) => (
+                            //Item Of Menu
                             <View
                               style={{
                                 backgroundColor: "#000",
@@ -442,6 +455,7 @@ const RestaurantScreen = ({
                               }}
                               key={index}
                             >
+                              {/* Quantity,Image,Name,Price */}
                               <Pressable
                                 style={{
                                   flexDirection: "row",
@@ -488,6 +502,7 @@ const RestaurantScreen = ({
                                   ${item?.price}.00
                                 </Text>
                               </Pressable>
+                              {/*Buton +, -,  */}
                               <Pressable
                                 style={{
                                   flexDirection: "row",
@@ -496,6 +511,7 @@ const RestaurantScreen = ({
                                   marginBottom: 8,
                                 }}
                               >
+                                {/* Button - của món ăn chỉ xuất hiện khi trong giỏ hàng có món ăn đó */}
                                 <Pressable style={{ flex: 1 }}>
                                   {cart?.map((cartItem, index) => (
                                     <View key={index}>
@@ -521,7 +537,9 @@ const RestaurantScreen = ({
                                     </View>
                                   ))}
                                 </Pressable>
+
                                 {item.additives?.length !== undefined ? (
+                                  // Button + của món ăn có additives khi bấm vào sẽ mở Modal hiển thị các additives
                                   <Pressable
                                     onPress={() =>
                                       handleAdditivesModal(item._id)
@@ -542,6 +560,7 @@ const RestaurantScreen = ({
                                     />
                                   </Pressable>
                                 ) : (
+                                  // Button + của món ăn không có additives khi bấm vào sẽ thêm vào cart nếu chưa có còn có rồi thì tăng số lượng
                                   <Pressable
                                     onPress={() =>
                                       addItemToCart({ ...item, quantity: 1 })
@@ -572,6 +591,7 @@ const RestaurantScreen = ({
             </View>
           </ScrollView>
           {total > 0 && (
+            // Hiển thị tổng tiền trong giỏ hàn
             <Pressable
               // onPress={}
               style={{
@@ -620,6 +640,7 @@ const RestaurantScreen = ({
             marginBottom: 2,
           }}
         >
+          {/* Header Modal Additive */}
           <Animated.View style={[{ zIndex: 100 }, animateModalHeader1]}>
             <Animated.View
               style={[
@@ -653,7 +674,7 @@ const RestaurantScreen = ({
               </View>
             </Animated.View>
           </Animated.View>
-
+          {/* Button Close */}
           <Animated.View style={[{ zIndex: 1 }, animateModalHeader2]}>
             <Animated.View style={[animateModalHeader2Ht, animateModalOpacity]}>
               <Pressable
@@ -735,6 +756,7 @@ const RestaurantScreen = ({
                       {foodItem?.description}
                     </Text>
                   </View>
+                  {/* Additives */}
                   {foodItem.additives?.map((additive, index) => (
                     <View
                       key={index}
@@ -775,6 +797,7 @@ const RestaurantScreen = ({
                           </Text>
                         </View>
                       </View>
+                      {/* additive Ìno */}
                       {additive.additiveInfo
                         .filter((item) => item.parentId === additive._id)
                         .map((additiveList, index) => (
@@ -810,6 +833,7 @@ const RestaurantScreen = ({
                                 )}
                               </Text>
                             </View>
+                            {/* Button plus/check */}
                             <Pressable
                               onPress={() =>
                                 addAdditives(additiveList, additiveList._id)
@@ -838,6 +862,7 @@ const RestaurantScreen = ({
                   ))}
                 </View>
               ))}
+            {/* Button +,-,quantity */}
             <View
               style={{
                 marginVertical: 10,
@@ -850,6 +875,7 @@ const RestaurantScreen = ({
                 marginBottom: 90,
               }}
             >
+              {/* Button - */}
               <Pressable
                 onPress={() => decQ()}
                 style={{
@@ -870,7 +896,7 @@ const RestaurantScreen = ({
                   }}
                 />
               </Pressable>
-
+              {/* Quantity */}
               <Pressable
                 style={{
                   paddingHorizontal: 10,
@@ -887,7 +913,7 @@ const RestaurantScreen = ({
                   {qCount}
                 </Text>
               </Pressable>
-
+              {/* Button + */}
               <Pressable
                 onPress={() => incQ()}
                 style={{
